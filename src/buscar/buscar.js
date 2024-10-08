@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './buscar.css';
 
 const Buscar = () => {
   const [query, setQuery] = useState('');
@@ -13,18 +14,20 @@ const Buscar = () => {
   };
 
   return (
-    <div>
-      <h1>Buscar Productos</h1>
-      <form onSubmit={handleSearch}>
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Buscar productos..."
-        />
-        <button type="submit">Buscar</button>
-      </form>
-    </div>
+    <div className="busqueda-container">
+    <h1 className="titulo-busqueda">Buscar Productos</h1>
+    <form onSubmit={handleSearch} className="busqueda-form">
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Buscar productos..."
+        className="busqueda-input"
+      />
+      <button type="submit" className="busqueda-button">Buscar</button>
+    </form>
+  </div>
+  
   );
 };
 
