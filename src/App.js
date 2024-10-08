@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Buscar from './buscar/buscar';
 import Listado from './listado/listado';
-import DetalleProducto from './detalles/detalles'; // Importar el componente de detalles
+import DetalleProducto from './detalles/detalles'; 
 
 const App = () => {
   return (

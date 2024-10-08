@@ -2,16 +2,17 @@
     max-width: 600px; /* Ancho máximo del contenedor */
     margin: 0 auto; /* Centra el contenedor en la página */
     padding: 20px; /* Espaciado interno */
-    background-color: #f9f9f9; /* Color de fondo */
+    background-color: #dfdddd; /* Color de fondo */
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
   }
   
   .titulo-busqueda {
     text-align: center; /* Centra el título */
     font-size: 24px; /* Tamaño de fuente del título */
+    font-weight: 900;
     margin-bottom: 20px; /* Espacio debajo del título */
-    color: #333; /* Color del texto */
+    color: #eeeded; /* Color del texto */
   }
   
   .busqueda-form {
@@ -31,7 +32,7 @@
   }
   
   .busqueda-input:focus {
-    border-color: #007bff; /* Cambia el color del borde al hacer foco */
+    border-color: #002750; /* Cambia el color del borde al hacer foco */
   }
   
   .busqueda-button {
@@ -42,6 +43,7 @@
     color: white; /* Color del texto */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     font-size: 16px; /* Tamaño de fuente del botón */
+    font-weight: 700;
     transition: background-color 0.3s; /* Transición para el efecto hover */
   }
   
