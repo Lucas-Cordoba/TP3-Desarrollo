@@ -41,7 +41,6 @@ const Listado = () => {
     }
   }, [location]);
 
-  // Función para buscar productos
   const fetchProductos = async (searchQuery, category, currentPage) => {
     setLoading(true);
     setError(null);
@@ -81,7 +80,6 @@ const Listado = () => {
     fetchProductos(query, newCategory, 1); // Cargar la primera página con la nueva categoría
   };
 
-  // Manejo de paginación
   const handleNextPage = () => {
     if (page < totalPages) {
       const nextPage = page + 1;

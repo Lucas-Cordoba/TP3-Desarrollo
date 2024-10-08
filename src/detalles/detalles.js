@@ -10,7 +10,7 @@ const DetalleProducto = () => {
   const [descripcion, setDescripcion] = useState(''); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Nuevo estado para la imagen activa
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const fetchProducto = async () => {
@@ -64,7 +64,7 @@ const DetalleProducto = () => {
     return <p>No se encontró el producto.</p>;
   }
 
-  const { title, price, pictures } = producto;
+  const { title, price, pictures, attributes } = producto;
 
   return (
     <div className='container'>
@@ -78,9 +78,23 @@ const DetalleProducto = () => {
         <div className='detalles container-detalles'>
           <p>Precio: ${price}</p>
           <p>Descripción: {descripcion || 'No hay descripción disponible.'}</p>
-          <button className='boton-detalles' onClick={handleVolver}>Volver</button>
         </div>
       </div>
+
+      {attributes && attributes.length > 0 && (
+        <div className='atributos'>
+          <h3>Atributos del producto:</h3>
+          <ul>
+            {attributes.map((attr, index) => (
+              <li key={index} className='atributo-item'>
+                <strong>{attr.name}: </strong>{attr.value_name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <button className='boton-detalles' onClick={handleVolver}>Volver</button>
     </div>
   ); 
 };

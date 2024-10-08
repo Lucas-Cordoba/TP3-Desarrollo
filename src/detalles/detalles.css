@@ -8,7 +8,7 @@
   .producto-imagen {
     width: 300px; /* Ancho fijo para la imagen */
     height: 300px; /* Altura fija para la imagen */
-    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+    object-fit: contain; /* Mantiene la proporción y recorta si es necesario */
     margin-right: 20px; /* Espacio entre la imagen y el contenido */
   }
   
@@ -53,4 +53,10 @@
     align-items: center;
     gap: 10px; /* Espacio entre la imagen y los botones */
   }
+  .atributos {
+    margin-top: 20px;
+  }
   
+  .atributo-item {
+    margin-bottom: 10px; /* Espacio entre los atributos */
+  }
