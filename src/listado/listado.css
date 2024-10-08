@@ -1,4 +1,4 @@
-.listado-container {
+.container {
     max-width: 900px; /* Ancho máximo del contenedor */
     margin: 20px auto; /* Centra el contenedor y agrega margen */
     padding: 20px; /* Espaciado interno */
@@ -29,6 +29,7 @@
     padding: 15px; /* Espaciado interno */
     transition: transform 0.2s; /* Transición al hacer hover */
     text-align: center; /* Centra el texto */
+    overflow: hidden; /* Oculta cualquier desbordamiento de imagen */
   }
   
   .producto-item:hover {
@@ -39,6 +40,7 @@
     max-width: 100%; /* Imagen ajustada al contenedor */
     height: auto; /* Altura automática */
     border-radius: 5px; /* Bordes redondeados */
+    object-fit: cover;
   }
   
   .producto-info {

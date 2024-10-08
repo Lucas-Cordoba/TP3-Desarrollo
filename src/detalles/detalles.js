@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'; 
 import './detalles.css';
+import '../listado/listado.css';
 
 const DetalleProducto = () => {
   const { id } = useParams(); 
@@ -10,7 +11,6 @@ const DetalleProducto = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  
   useEffect(() => {
     const fetchProducto = async () => {
       setLoading(true);
@@ -28,7 +28,7 @@ const DetalleProducto = () => {
           throw new Error('Error al obtener la descripción del producto');
         }
         const dataDescripcion = await responseDescripcion.json();
-        setDescripcion(dataDescripcion.plain_text); // Guardar la descripción en el estado
+        setDescripcion(dataDescripcion.plain_text);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -51,22 +51,25 @@ const DetalleProducto = () => {
     return <p>Error: {error}</p>;
   }
 
+  if (!producto) {
+    return <p>No se encontró el producto.</p>;
+  }
+
+  const { title, price, pictures } = producto;
+
   return (
-    <div>
-      {producto ? (
-        <>
-          <h2>{producto.title}</h2>
-          <img src={producto.pictures[0]?.url} alt={producto.title} />
-          <p>Precio: ${producto.price}</p>
+    <div className='container'>
+      <h2>{title}</h2>
+      <div className='grid'>
+        <img className='producto-imagen' src={pictures && pictures.length > 0 ? pictures[0].url : 'ruta_por_defecto.jpg'} alt={title} />
+        <div className='detalles container-detalles'>
+          <p>Precio: ${price}</p>
           <p>Descripción: {descripcion || 'No hay descripción disponible.'}</p>
-          {/* Botón para volver */}
-          <button className='boton-volver' onClick={handleVolver}>Volver</button>
-        </>
-      ) : (
-        <p>No se encontró el producto.</p>
-      )}
+          <button className='boton-detalles' onClick={handleVolver}>Volver</button>
+        </div>
+      </div>
     </div>
-  );
+  ); 
 };
 
 export default DetalleProducto;

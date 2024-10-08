@@ -1,13 +1,48 @@
-.boton-volver{
-    font-size: 1.3rem;
-    font-weight: 300;
+.grid {
+    display: flex; /* Usar flexbox para organizar los elementos */
+    align-items: center; /* Alinear los elementos al inicio */
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .producto-imagen {
+    max-width: 300px; /* Ancho máximo para la imagen */
+    margin-right: 20px; /* Espacio entre la imagen y el contenido */
+  }
+  
+  .detalles {
+    flex: 1; 
+    max-width: 900px; 
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 20px auto; 
+    padding: 20px; 
+    background-color: #bebebe;
+    color: rgb(17, 17, 17);
+    border-radius: 8px; 
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582); 
+    white-space: pre-wrap; /* Mantiene los saltos de línea y los espacios */
+  }
+
+  .descripcion{
+    margin-top: 20px; /* Espacio superior para la descripción */
+    font-size: 0.9rem; /* Ajustar el tamaño de la fuente */
+    font-weight: normal; /* Cambiar el peso de la fuente */
+    line-height: 1.5; /* Espaciado entre líneas */
+    color: #333; /* Color del texto */
+  }
+
+.boton-detalles{
+    font-size: 1rem;
+    font-weight: 250;
     color: white;
-    background-color: #007bff;
+    background-color: #384757;
     border-radius: 0.5rem;
     cursor: pointer;
+    text-transform: uppercase;
 }
 
-.boton-volver:hover{
-    background-color: #0559b3;
+.boton-detalles:hover{
+    background-color: #0a111a;
 }
 

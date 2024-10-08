@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Buscar from '../buscar/buscar';
 import './listado.css';
+import '../detalles/detalles.css'
 
 const Listado = () => {
   const [productos, setProductos] = useState([]);
@@ -104,7 +105,7 @@ const Listado = () => {
   };
 
   return (
-    <div className="listado-container">
+    <div className="container">
       <Buscar onSearch={handleSearch} />
       
       <h2 className="titulo-busqueda">
@@ -138,7 +139,7 @@ const Listado = () => {
                   <p className="producto-precio"> Precio: ${formatPrice(producto.price)}</p>
                 </div>
                 <Link to={`/detalle/${producto.id}`}>
-                  <button>Ver detalles</button>
+                  <button className='boton-detalles'>Ver detalles</button>
                 </Link>
               </li>
             ))}
