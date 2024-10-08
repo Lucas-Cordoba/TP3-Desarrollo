@@ -1,5 +1,4 @@
-// CarritoContext.js
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState } from "react";
 
 const CarritoContext = createContext();
 
@@ -8,10 +7,14 @@ export const CarritoProvider = ({ children }) => {
 
   const agregarAlCarrito = (producto) => {
     setCarrito((prevCarrito) => {
-      const productoExistente = prevCarrito.find((item) => item.id === producto.id);
+      const productoExistente = prevCarrito.find(
+        (item) => item.id === producto.id
+      );
       if (productoExistente) {
         return prevCarrito.map((item) =>
-          item.id === producto.id ? { ...item, cantidad: item.cantidad + 1 } : item
+          item.id === producto.id
+            ? { ...item, cantidad: item.cantidad + 1 }
+            : item
         );
       }
       return [...prevCarrito, { ...producto, cantidad: 1 }];

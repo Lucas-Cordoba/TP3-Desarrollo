@@ -1,24 +1,29 @@
-// src/components/ContadorCarrito.js
-import React from 'react';
-import { useCarrito } from '../carritoContext/carritoContext';
-import { useNavigate } from 'react-router-dom';
-import './contadorCarrito.css'; // Asegúrate de tener este archivo de estilos
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useCarrito } from "../carritoContext/carritoContext";
+import "./contadorCarrito.css";
 
 const ContadorCarrito = () => {
   const { carrito } = useCarrito();
   const navigate = useNavigate();
 
-  // Calcular la cantidad total de productos en el carrito
-  const cantidadTotal = carrito.reduce((total, producto) => total + producto.cantidad, 0);
+  const cantidadTotal = carrito.reduce(
+    (total, producto) => total + producto.cantidad,
+    0
+  );
 
   const handleClick = () => {
-    navigate('/carrito'); // Redirige a la página del carrito
+    navigate("/carrito");
   };
 
   return (
-    <div className='contador-carrito' onClick={handleClick}>
-      <span className='icono-carrito'>🛒</span> {/* Icono de carrito */}
-      <span className='cantidad'>{cantidadTotal > 0 ? cantidadTotal : 0}</span>
+    <div
+      className="d-flex align-items-center m-3 p-2 border rounded position-fixed bg-warning cursor-pointer z-1000"
+      onClick={handleClick}
+    >
+      <span className="me-2 fs-4">🛒</span>
+      <span className="fs-5">{cantidadTotal > 0 ? cantidadTotal : 0}</span>
+      <span className="ms-2">Ir al carrito</span>
     </div>
   );
 };

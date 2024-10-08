@@ -1,99 +1,14 @@
-.container {
-    max-width: 1100px; /* Ancho máximo del contenedor */
-    margin: 20px auto; /* Centra el contenedor y agrega margen */
-    padding: 20px; /* Espaciado interno */
-    background-color: #ffffff; /* Color de fondo */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
-  }
-  
-  .titulo-busqueda {
-    font-size: 24px; /* Tamaño del título */
-    color: #3f3e3e; /* Color azul */
-    text-align: center; /* Centra el título */
-    margin-bottom: 20px; /* Espacio inferior */
-  }
-  
-  .productos-list {
-    list-style: none; /* Elimina las viñetas de la lista */
-    padding: 0; /* Elimina el padding */
-    display: grid; /* Usar grid para disposición */
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Disposición responsiva */
-    gap: 15px; /* Espacio entre productos */
-  }
-  
-  .producto-item {
-    background-color: #f8f9fa; /* Color de fondo suave */
-    border: 1px solid #ced4da; /* Borde gris */
-    border-radius: 6px; /* Bordes redondeados */
-    padding: 15px; /* Espaciado interno */
-    transition: transform 0.2s; /* Transición al hacer hover */
-    text-align: center; /* Centra el texto */
-    overflow: hidden; /* Oculta cualquier desbordamiento de imagen */
-  }
-  
-  .producto-item:hover {
-    transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
-  }
-  
-  .producto-imagen {
-    max-width: 100%; /* Imagen ajustada al contenedor */
-    height: auto; /* Altura automática */
-    border-radius: 5px; /* Bordes redondeados */
-    object-fit: cover;
-  }
-  
-  .producto-info {
-    margin-top: 10px; /* Espacio superior */
-  }
-  
-  .producto-titulo {
-    font-size: 18px; /* Tamaño del título del producto */
-    color: #343a40; /* Color gris oscuro */
-    font-weight: bold; /* Negrita */
-    margin: 5px 0; /* Espacio vertical */
-  }
-  
-  .producto-precio {
-    font-size: 16px; /* Tamaño del precio */
-    color: #28a745; /* Color verde para el precio */
-    font-weight: bold; /* Negrita */
-  }
-  
-  .paginacion {
-    display: flex; /* Flexbox para la paginación */
-    justify-content: center; /* Centra los elementos */
-    margin-top: 20px; /* Margen superior */
-  }
-  
-  .pagina-button {
-    background-color: #007bff; /* Color azul del botón */
-    color: #ffffff; /* Color del texto */
-    border: none; /* Sin borde */
-    border-radius: 4px; /* Bordes redondeados */
-    padding: 10px 15px; /* Espaciado interno */
-    margin: 0 5px; /* Margen lateral */
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    transition: background-color 0.2s; /* Transición para el hover */
-  }
-  
-  .pagina-button:hover {
-    background-color: #0056b3; /* Color más oscuro al hacer hover */
-  }
-  
-  .pagina-indicador {
-    align-self: center; /* Centra verticalmente */
-    margin: 0 10px; /* Espacio lateral */
-  }
-  
-  .categoria-selector {
-    margin: 20px 0;
-  }
-  
-  .categoria-selector label {
-    margin-right: 10px;
-  }
-  
-  .categoria-selector select {
-    padding: 5px;
-  }
+.truncate-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  line-clamp: 3; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2; 
+  max-height: 3.6em;
+}
+
+.card-img-top {
+  height: 150px;
+  object-fit: contain;
+}
