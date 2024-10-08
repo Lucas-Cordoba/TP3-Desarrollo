@@ -6,7 +6,9 @@
   }
   
   .producto-imagen {
-    max-width: 300px; /* Ancho máximo para la imagen */
+    width: 300px; /* Ancho fijo para la imagen */
+    height: 300px; /* Altura fija para la imagen */
+    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
     margin-right: 20px; /* Espacio entre la imagen y el contenido */
   }
   
@@ -23,16 +25,16 @@
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.582); 
     white-space: pre-wrap; /* Mantiene los saltos de línea y los espacios */
   }
-
-  .descripcion{
+  
+  .descripcion {
     margin-top: 20px; /* Espacio superior para la descripción */
     font-size: 0.9rem; /* Ajustar el tamaño de la fuente */
     font-weight: normal; /* Cambiar el peso de la fuente */
     line-height: 1.5; /* Espaciado entre líneas */
     color: #333; /* Color del texto */
   }
-
-.boton-detalles{
+  
+  .boton-detalles {
     font-size: 1rem;
     font-weight: 250;
     color: white;
@@ -40,9 +42,15 @@
     border-radius: 0.5rem;
     cursor: pointer;
     text-transform: uppercase;
-}
-
-.boton-detalles:hover{
+  }
+  
+  .boton-detalles:hover {
     background-color: #0a111a;
-}
-
+  }
+  
+  .carrusel {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre la imagen y los botones */
+  }
+  

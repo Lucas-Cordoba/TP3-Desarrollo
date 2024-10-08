@@ -10,6 +10,7 @@ const DetalleProducto = () => {
   const [descripcion, setDescripcion] = useState(''); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Nuevo estado para la imagen activa
 
   useEffect(() => {
     const fetchProducto = async () => {
@@ -43,6 +44,14 @@ const DetalleProducto = () => {
     navigate(-1);
   };
 
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % (producto.pictures.length));
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + producto.pictures.length) % (producto.pictures.length));
+  };
+
   if (loading) {
     return <p>Cargando detalles...</p>;
   }
@@ -61,7 +70,11 @@ const DetalleProducto = () => {
     <div className='container'>
       <h2>{title}</h2>
       <div className='grid'>
-        <img className='producto-imagen' src={pictures && pictures.length > 0 ? pictures[0].url : 'ruta_por_defecto.jpg'} alt={title} />
+        <div className='carrusel'>
+          <button className='boton-detalles' onClick={handlePrevImage} disabled={pictures.length <= 1}>{'<'}</button>
+          <img className='producto-imagen' src={pictures[currentImageIndex].url} alt={title} />
+          <button className='boton-detalles' onClick={handleNextImage} disabled={pictures.length <= 1}>{'>'}</button>
+        </div>
         <div className='detalles container-detalles'>
           <p>Precio: ${price}</p>
           <p>Descripción: {descripcion || 'No hay descripción disponible.'}</p>
