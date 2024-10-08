@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom'; // Importar Link para la navegación
+import { useLocation, Link } from 'react-router-dom';
 import Buscar from '../buscar/buscar';
 import './listado.css';
 
@@ -16,12 +16,27 @@ const Listado = () => {
 
   const location = useLocation();
 
-  // Obtiene el query de la URL cuando se carga el componente
+  // Obtiene las categorías al cargar el componente
+  useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const response = await fetch('https://api.mercadolibre.com/sites/MLA/categories');
+        if (!response.ok) throw new Error('Error al obtener categorías');
+        const data = await response.json();
+        setCategorias(data);
+      } catch (error) {
+        setError(error.message);
+      }
+    };
+    fetchCategorias();
+  }, []);
+
+  // Obtiene el query de la URL y los productos
   useEffect(() => {
     const queryParam = new URLSearchParams(location.search).get('query');
     if (queryParam) {
       setQuery(queryParam);
-      fetchProductos(queryParam, 1); // Carga la primera página
+      fetchProductos(queryParam, selectedCategory, 1); // Carga la primera página
     }
   }, [location]);
 
@@ -116,10 +131,15 @@ const Listado = () => {
         <>
           <ul className="productos-list">
             {productos.map((producto) => (
-              <li key={producto.id}>
-                <img src={producto.thumbnail} alt={producto.title} />
-                <p>{producto.title}</p>
-                <p>Precio: ${producto.price}</p>
+              <li key={producto.id} className="producto-item">
+                <img className="producto-imagen" src={producto.thumbnail} alt={producto.title} />
+                <div className="producto-info">
+                  <p className="producto-titulo">{producto.title}</p>
+                  <p className="producto-precio"> Precio: ${formatPrice(producto.price)}</p>
+                </div>
+                <Link to={`/detalle/${producto.id}`}>
+                  <button>Ver detalles</button>
+                </Link>
               </li>
             ))}
           </ul>
