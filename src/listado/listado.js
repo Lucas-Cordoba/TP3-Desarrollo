@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom'; // Importar Link para la navegación
 import Buscar from '../buscar/buscar';
 
 const Listado = () => {
@@ -13,12 +13,11 @@ const Listado = () => {
 
   const location = useLocation();
 
-  // Obtiene el query de la URL cuando se carga el componente
   useEffect(() => {
     const queryParam = new URLSearchParams(location.search).get('query');
     if (queryParam) {
       setQuery(queryParam);
-      fetchProductos(queryParam, 1); // Carga la primera página
+      fetchProductos(queryParam, 1); // Cargar la primera página
     }
   }, [location]);
 
@@ -85,6 +84,10 @@ const Listado = () => {
                 <img src={producto.thumbnail} alt={producto.title} />
                 <p>{producto.title}</p>
                 <p>Precio: ${producto.price}</p>
+                {/* Botón que lleva a la página de detalles */}
+                <Link to={`/detalle/${producto.id}`}>
+                  <button>Ver detalles</button>
+                </Link>
               </li>
             ))}
           </ul>
