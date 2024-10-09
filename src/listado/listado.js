@@ -39,7 +39,7 @@ const Listado = () => {
       setQuery(queryParam);
       fetchProductos(queryParam, selectedCategory, 1);
     }
-  }, [location]);
+  }, [location, selectedCategory]);
 
   const fetchProductos = async (searchQuery, category, currentPage) => {
     setLoading(true);
