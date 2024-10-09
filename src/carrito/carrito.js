@@ -71,7 +71,7 @@ const Carrito = () => {
         </div>
       )}
 
-      <div className="text-center mt-4">
+      <div className="text-center mt-4 mb-2">
         <button className="btn btn-secondary" onClick={handleVolver}>
           Volver
         </button>

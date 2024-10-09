@@ -18,12 +18,12 @@ const ContadorCarrito = () => {
 
   return (
     <div
-      className="d-flex align-items-center m-3 p-2 border rounded position-fixed bg-warning cursor-pointer z-1000"
+      className="d-flex align-items-center p-2 border rounded bg-warning cursor-pointer z-1000"
       onClick={handleClick}
     >
       <span className="me-2 fs-4">🛒</span>
       <span className="fs-5">{cantidadTotal > 0 ? cantidadTotal : 0}</span>
-      <span className="ms-2">Ir al carrito</span>
+      <span className="ms-2">Carrito</span>
     </div>
   );
 };
