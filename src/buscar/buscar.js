@@ -15,7 +15,7 @@ const Buscar = () => {
 
   return (
     <div className="container text-center mb-4">
-      <h1 className="mb-4">Buscar Productos</h1>
+      <h1 className="mb-4 pt-5">Buscar Productos</h1>
       <form
         onSubmit={handleSearch}
         className="d-flex justify-content-center shadow-box"
