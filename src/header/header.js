@@ -4,7 +4,7 @@ import ContadorCarrito from '../contadorCarrito/contadorCarrito'; // Asegúrate 
 
 const Header = () => {
     return (
-        <header className='bg-light p-3 sticky-top'>
+        <header className='bg-light shadow p-3 mb-5 bg-white rounded p-3 sticky-top'>
             <div className="container d-flex justify-content-between align-items-center">
                 <h1 className="me-auto">E-commerce DDS</h1>
                 <nav className="d-flex align-items-center">
